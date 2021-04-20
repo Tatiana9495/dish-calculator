@@ -1,0 +1,28 @@
+@import '../../../../scss/variables';
+
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: $white;
+  display: flex;
+  align-items: center;
+  
+  .rightBlock {
+    display: flex;
+    align-items: center;
+  }
+}
+
+@media (min-width: 1024px) {
+  .logo {
+    font-size: 20px;
+    font-weight: 900;
+  }
+  .container {
+    padding: 0 32px;
+    height: 74px;
+    justify-content: space-between;
+  }
+}
