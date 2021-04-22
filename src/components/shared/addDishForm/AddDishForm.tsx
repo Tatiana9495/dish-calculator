@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Form, Input, Button, Upload, message } from 'antd';
+import { Form, Input, Button, Upload } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 
 import styles from './AddDishForm.module.scss';
-import FormItem from 'antd/lib/form/FormItem';
 
 const AddDishForm: React.FC = (): JSX.Element => {
   const [fileList, setFileList] = useState<any[]>([]);

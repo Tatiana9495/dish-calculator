@@ -195,4 +195,9 @@ export const dishes = [
       },
     ],
   },
+  {
+    category: 'Ингредиенты',
+    link: '/ingredients',
+    img: '/ingredients.jpg',
+  },
 ];

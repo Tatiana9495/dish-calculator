@@ -17,15 +17,15 @@ const Category: React.FC<ICategory> = ({ title }: ICategory): JSX.Element => {
   const [isModalOpen, setModalOpen] = useState<boolean>(false);
 
   return (
-    <Layout>
+    <Layout page="Category">
       <div className={styles.container}>
         <div className={styles.mainTitle}>{title}</div>
         <Row gutter={[24, 24]}>
           {dishes
             .filter((item) => item.category === title)[0]
-            .dishes.sort((a, b) => a.title.localeCompare(b.title))
+            .dishes?.sort((a, b) => a.title.localeCompare(b.title))
             .map((item, index) => (
-              <Col span={8} className="gutter-row" key={`dish-${index}`}>
+              <Col xs={24} md={12} lg={8} className="gutter-row" key={`dish-${index}`}>
                 <Link to={pages.singleDish}>
                   <div className={styles.dishContainer}>
                     <div className={styles.pic}></div>

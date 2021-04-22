@@ -1,0 +1,121 @@
+@import "../../../scss/variables";
+
+.container {
+  width: 100%;
+
+  .input {
+    width: 100%;
+    outline: none;
+    border: none;
+  }
+}
+
+@media (min-width: 320px) {
+  .container {
+    padding: 82px 16px 28px 16px;
+
+    .title {
+      display: none;
+    }
+
+    .table {
+      width: 100%;
+      border-top: 1px solid $grey-placeholder;
+      border-left: 1px solid $grey-placeholder;
+
+      .row {
+        display: flex;
+        width: 100%;
+        height: 42px;
+        border-bottom: 1px solid $grey-placeholder;
+
+        .header {
+          justify-content: center;
+          font-weight: 700;
+          font-size: 16px;
+        }
+
+        .firstColumn,
+        .secondColumn,
+        .thirdColumn {
+          border-right: 1px solid $grey-placeholder;
+          display: flex;
+          align-items: center;
+          padding: 0 12px;
+          height: 100%;
+        }
+
+        .firstColumn {
+          width: 13%;
+          justify-content: center;
+        }
+
+        .secondColumn {
+          width: 48%;
+          overflow: hidden;
+          white-space: nowrap;
+        }
+
+        .thirdColumn {
+          width: 39%;
+          justify-content: center;
+        }
+
+        .standard {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 109px 0 28px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .title {
+      display: block;
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 45px;
+      text-align: center;
+    }
+
+    .table {
+      width: 546px;
+
+      .row {
+        height: 52px;
+
+        .header {
+          font-size: 20px;
+        }
+
+        .firstColumn,
+        .secondColumn,
+        .thirdColumn {
+          padding: 0 23px;
+        }
+
+        .firstColumn {
+          width: 70px;
+        }
+
+        .secondColumn {
+          width: 260px;
+        }
+
+        .thirdColumn {
+          width: 216px;
+        }
+
+        .standard {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}

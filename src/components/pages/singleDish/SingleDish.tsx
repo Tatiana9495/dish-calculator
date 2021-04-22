@@ -25,7 +25,7 @@ const ingredients = [
 
 const SingleDish: React.FC = (): JSX.Element => {
   return (
-    <Layout>
+    <Layout page="Dish">
       <div className={styles.container}>
         <div className={styles.innerContainer}>
           <div style={{ backgroundImage: `url(/tofu.jpg)` }} className={styles.pic}></div>

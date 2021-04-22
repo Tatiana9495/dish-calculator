@@ -5,12 +5,13 @@ import styles from './Layout.module.scss';
 
 interface ILayout {
   children: React.ReactNode;
+  page: string;
 }
 
-const Layout: React.FC<ILayout> = ({ children }: ILayout): JSX.Element => {
+const Layout: React.FC<ILayout> = ({ children, page }: ILayout): JSX.Element => {
   return (
     <div className={styles.container}>
-      <Header />
+      <Header page={page} />
       {children}
     </div>
   );

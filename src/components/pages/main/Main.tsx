@@ -6,8 +6,7 @@ import Header from '../../shared/layout/header/Header';
 
 const Main: React.FC = (): JSX.Element => {
   return (
-    <Layout>
-      <Header />
+    <Layout page="Main">
       <Body />
     </Layout>
   );

@@ -6,4 +6,5 @@ export const pages = {
   deserts: '/deserts',
   beverages: '/beverages',
   singleDish: '/single_dish',
+  ingredients: '/ingredients',
 };

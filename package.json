@@ -58,6 +58,9 @@
     "eslint-config-prettier": "^8.2.0",
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.23.2",
-    "prettier": "^2.2.1"
+    "firebase": "^8.4.1",
+    "prettier": "^2.2.1",
+    "react-redux-firebase": "^3.10.0",
+    "redux-firestore": "^0.15.0"
   }
 }
