@@ -8,6 +8,14 @@
     outline: none;
     border: none;
   }
+
+  .centeredInput {
+    text-align: center;
+  }
+
+  .addRow {
+    border-left: 1px solid $grey-placeholder;
+  }
 }
 
 @media (min-width: 320px) {
@@ -22,48 +30,84 @@
       width: 100%;
       border-top: 1px solid $grey-placeholder;
       border-left: 1px solid $grey-placeholder;
+    }
 
-      .row {
+    .row {
+      display: flex;
+      width: 100%;
+      height: 42px;
+      border-bottom: 1px solid $grey-placeholder;
+
+      .header {
+        justify-content: center;
+        font-weight: 700;
+        font-size: 16px;
+      }
+
+      .firstColumn,
+      .secondColumn,
+      .thirdColumn {
+        border-right: 1px solid $grey-placeholder;
         display: flex;
-        width: 100%;
-        height: 42px;
-        border-bottom: 1px solid $grey-placeholder;
+        align-items: center;
+        padding: 0 12px;
+        height: 100%;
+      }
 
-        .header {
-          justify-content: center;
-          font-weight: 700;
-          font-size: 16px;
-        }
+      .firstColumn {
+        width: 13%;
+        justify-content: center;
+      }
 
-        .firstColumn,
-        .secondColumn,
-        .thirdColumn {
-          border-right: 1px solid $grey-placeholder;
-          display: flex;
-          align-items: center;
-          padding: 0 12px;
-          height: 100%;
-        }
+      .secondColumn {
+        width: 48%;
+        overflow: hidden;
+        white-space: nowrap;
+      }
 
-        .firstColumn {
-          width: 13%;
-          justify-content: center;
-        }
+      .thirdColumn {
+        width: 39%;
+        justify-content: center;
+      }
 
-        .secondColumn {
-          width: 48%;
-          overflow: hidden;
-          white-space: nowrap;
-        }
+      .standard {
+        font-size: 14px;
+      }
+    }
 
-        .thirdColumn {
-          width: 39%;
-          justify-content: center;
-        }
+    .addBtn {
+      width: 36px;
+      height: 36px;
+      font-size: 20px;
+      margin-top: 20px;
+    }
 
-        .standard {
-          font-size: 14px;
-        }
+    .btnWrapper {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 38px auto;
+
+      .submitBtn,
+      .cancelBtn {
+        width: 48%;
+        height: 47px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px;
+        color: $white;
+        font-size: 22px;
+        font-weight: 700;
+      }
+
+      .submitBtn {
+        background-color: $blue;
+      }
+
+      .cancelBtn {
+        background-color: $red;
       }
     }
   }
@@ -86,35 +130,55 @@
 
     .table {
       width: 546px;
+    }
 
-      .row {
-        height: 52px;
+    .row {
+      height: 52px;
 
-        .header {
-          font-size: 20px;
-        }
+      .header {
+        font-size: 20px;
+      }
 
-        .firstColumn,
-        .secondColumn,
-        .thirdColumn {
-          padding: 0 23px;
-        }
+      .firstColumn,
+      .secondColumn,
+      .thirdColumn {
+        padding: 0 23px;
+      }
 
-        .firstColumn {
-          width: 70px;
-        }
+      .firstColumn {
+        width: 70px;
+      }
 
-        .secondColumn {
-          width: 260px;
-        }
+      .secondColumn {
+        width: 260px;
+      }
 
-        .thirdColumn {
-          width: 216px;
-        }
+      .thirdColumn {
+        width: 216px;
+      }
 
-        .standard {
-          font-size: 18px;
-        }
+      .standard {
+        font-size: 18px;
+      }
+    }
+
+    .addBtn {
+      width: 50px;
+      height: 50px;
+      font-size: 22px;
+    }
+
+    .btnWrapper {
+      width: unset;
+      width: 270px;
+
+      .submitBtn,
+      .cancelBtn {
+        width: 130px;
+      }
+
+      .cancelBtn {
+        cursor: pointer;
       }
     }
   }

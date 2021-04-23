@@ -8,7 +8,7 @@ import styles from './Body.module.scss';
 const Body: React.FC = (): JSX.Element => {
   return (
     <div className={styles.container}>
-      <Row gutter={24} className={styles.row}>
+      <Row gutter={[24, 24]} className={styles.row}>
         {dishes.map((item, index) => (
           <Col className="gutter-row" xs={24} md={6} key={`category-${index}`}>
             <Link to={item.link}>

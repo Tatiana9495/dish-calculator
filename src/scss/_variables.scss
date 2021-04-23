@@ -4,3 +4,15 @@ $grey: grey;
 $grey-placeholder: #C4C4C4;
 $blue: #40a9ff;
 $red: #F44F4F;
+
+.addBtn {
+  border-radius: 50%;
+  border: 1px solid $blue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  color: $blue;
+  margin: 0 auto;
+  cursor: pointer;
+}
