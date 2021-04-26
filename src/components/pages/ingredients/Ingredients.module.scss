@@ -7,6 +7,16 @@
     width: 100%;
     outline: none;
     border: none;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+
+  input[type="number"] {
+    -moz-appearance: textfield;
   }
 
   .centeredInput {
@@ -15,6 +25,12 @@
 
   .addRow {
     border-left: 1px solid $grey-placeholder;
+  }
+
+  .loaderWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
@@ -104,11 +120,22 @@
 
       .submitBtn {
         background-color: $blue;
+        border: none;
+      }
+
+      .disabledBtn {
+        background-color: $grey-placeholder;
+        cursor: not-allowed;
+        border: none;
       }
 
       .cancelBtn {
         background-color: $red;
       }
+    }
+
+    .loaderWrapper {
+      height: calc(100vh - 56px);
     }
   }
 }
@@ -134,6 +161,7 @@
 
     .row {
       height: 52px;
+      position: relative;
 
       .header {
         font-size: 20px;
@@ -162,6 +190,18 @@
       }
     }
 
+    .tooltip {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      width: 40px;
+      height: 42px;
+      top: 0;
+      left: 102%;
+      background-color: $white;
+    }
+
     .addBtn {
       width: 50px;
       height: 50px;
@@ -180,6 +220,10 @@
       .cancelBtn {
         cursor: pointer;
       }
+    }
+
+    .loaderWrapper {
+      height: calc(100vh - 74px);
     }
   }
 }

@@ -6,7 +6,7 @@ import { RootStateOrAny, useSelector } from 'react-redux';
 import { pages } from '../consts/paths';
 import Beverages from './pages/beverages/Beverages';
 import ColdDepartment from './pages/coldDepartment/ColdDepartment';
-import Deserts from './pages/deserts/Deserts';
+import Desserts from './pages/desserts/Desserts';
 import HotDepartment from './pages/hotDepartment/HotDepartment';
 import Main from './pages/main/Main';
 import SignIn from './pages/signIn/SignIn';
@@ -29,7 +29,7 @@ const App: React.FC = (): JSX.Element => {
       <Route exact path={pages.main} component={Main} />
       <Route exact path={pages.hotDepartment} component={HotDepartment} />
       <Route exact path={pages.coldDepartment} component={ColdDepartment} />
-      <Route exact path={pages.deserts} component={Deserts} />
+      <Route exact path={pages.deserts} component={Desserts} />
       <Route exact path={pages.beverages} component={Beverages} />
       <Route exact path={pages.singleDish} component={SingleDish} />
       <Route exact path={pages.ingredients} component={Ingredients} />

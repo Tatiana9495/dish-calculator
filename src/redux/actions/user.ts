@@ -11,7 +11,7 @@ export const signIn = (email: string, password: string) => (dispatch: Dispatch) 
       password: password,
     })
     .then(() => {
-      console.log('kiki');
+      // console.log('kiki');
       dispatch({ type: SIGN_IN, email });
     });
 };

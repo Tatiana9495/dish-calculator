@@ -1,23 +1,29 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Form, Input, Button, Upload } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 
-import styles from './AddDishForm.module.scss';
+interface IAddDishForm {
+  setDishValue: (value: any) => void;
+  dishValue: {
+    title: string;
+    portion: string | number;
+  };
+}
 
-const AddDishForm: React.FC = (): JSX.Element => {
+const AddDishForm: React.FC<IAddDishForm> = ({ dishValue, setDishValue }: IAddDishForm): JSX.Element => {
   const [fileList, setFileList] = useState<any[]>([]);
-  const [dishValue, setDishValue] = useState<{ title: string; portion: string; img: string | ArrayBuffer | null }>({
-    title: '',
-    portion: '',
-    img: '',
-  });
+  // const [dishValue, setDishValue] = useState<{ title: string; portion: string; img: string | ArrayBuffer | null }>({
+  //   title: '',
+  //   portion: '',
+  //   img: '',
+  // });
   const [form] = Form.useForm();
 
   const getBase64 = (img: File): any => {
     const reader = new FileReader();
     reader.readAsDataURL(img);
     reader.onload = () => {
-      setDishValue({ ...dishValue, img: reader.result });
+      // setDishValue({ ...dishValue, img: reader.result });
     };
   };
 
@@ -55,10 +61,6 @@ const AddDishForm: React.FC = (): JSX.Element => {
     setFileList(fileList);
   };
 
-  useEffect(() => {
-    console.log('fileList', fileList);
-  }, [fileList]);
-
   return (
     <Form
       form={form}
@@ -67,10 +69,10 @@ const AddDishForm: React.FC = (): JSX.Element => {
       // onValuesChange={onRequiredTypeChange}
     >
       <Form.Item label="Название блюда" name="title">
-        <Input />
+        <Input value={dishValue.title} onChange={(e) => setDishValue({ ...dishValue, title: e.target.value })} />
       </Form.Item>
       <Form.Item label="Порция в, г" name="portion">
-        <Input />
+        <Input value={dishValue.portion} onChange={(e) => setDishValue({ ...dishValue, portion: e.target.value })} />
       </Form.Item>
       <Form.Item name="img" style={{ width: '100%' }}>
         <Upload
