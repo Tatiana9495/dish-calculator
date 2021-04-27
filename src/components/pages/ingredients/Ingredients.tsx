@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { RootStateOrAny, useSelector } from 'react-redux';
-import { useFirestoreConnect, useFirestore } from 'react-redux-firebase';
+import { isLoaded, useFirestoreConnect, useFirestore } from 'react-redux-firebase';
 import classNames from 'classnames/bind';
 import { PlusOutlined, DeleteOutlined } from '@ant-design/icons';
 
@@ -29,8 +29,6 @@ const Ingredients: React.FC = (): JSX.Element => {
   useFirestoreConnect([{ collection: 'ingredients', orderBy: ['title', 'asc'] }]);
 
   const ingredients = useSelector((state: RootStateOrAny) => state.firestore.ordered.ingredients);
-
-  const loading = useSelector((state: RootStateOrAny) => state.firestore.status.requesting.ingredients);
 
   const submitTitle = (event: React.KeyboardEvent, index: string): void => {
     if (event.key === 'Enter' && title.value) {
@@ -71,7 +69,7 @@ const Ingredients: React.FC = (): JSX.Element => {
       <div className={styles.container}>
         <div className={styles.innerContainer}>
           <div className={styles.title}>Ingredients</div>
-          {loading ? (
+          {!isLoaded(ingredients) ? (
             <div className={styles.loaderWrapper}>
               <Loader />
             </div>
@@ -162,7 +160,7 @@ const Ingredients: React.FC = (): JSX.Element => {
               </div>
             </div>
           ) : (
-            !loading && (
+            isLoaded(ingredients) && (
               <div className={styles.addBtn} onClick={() => setAddRowOpen(true)}>
                 <PlusOutlined style={{ color: '#40a9ff' }} />
               </div>

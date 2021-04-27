@@ -1,2 +1,6 @@
 //USER
 export const SIGN_IN = 'SIGN_IN';
+
+//DISH
+export const ADD_SINGLE_DISH = 'ADD_SINGLE_DISH';
+export const REMOVE_SINGLE_DISH = 'REMOVE_SINGLE_DISH';

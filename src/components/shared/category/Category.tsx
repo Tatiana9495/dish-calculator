@@ -1,25 +1,28 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import { Row, Col, Button, Modal } from 'antd';
 import Layout from '../../shared/layout/Layout';
 import { PlusOutlined } from '@ant-design/icons';
-import { Link } from 'react-router-dom';
+import { Link, useRouteMatch } from 'react-router-dom';
 import { isLoaded, useFirestore } from 'react-redux-firebase';
 
+import { addSingleDish } from '../../../redux/actions/dish';
 import styles from './Category.module.scss';
 import AddDishForm from '../addDishForm/AddDishForm';
-import { pages } from '../../../consts/paths';
 import CategorySkeleton from '../categorySkeleton/CategorySkeleton';
 
 interface ICategory {
   title: string;
   data: {
+    id: string;
     title: string;
     portion: number;
   }[];
   collectionName: string;
+  addSingleDish: (collection: string, id: string, title: string, portion: string | number) => void;
 }
 
-const Category: React.FC<ICategory> = ({ title, data, collectionName }: ICategory): JSX.Element => {
+const Category: React.FC<ICategory> = ({ title, data, collectionName, addSingleDish }: ICategory): JSX.Element => {
   const [isModalOpen, setModalOpen] = useState<boolean>(false);
   const [dishValue, setDishValue] = useState<{ title: string; portion: string; img?: string | ArrayBuffer | null }>({
     title: '',
@@ -27,6 +30,8 @@ const Category: React.FC<ICategory> = ({ title, data, collectionName }: ICategor
     // img: '',
   });
   const firestore = useFirestore();
+
+  const { url } = useRouteMatch();
 
   const addItem = (title: string, portion: string | number, name: string): void => {
     if (title && portion) {
@@ -53,7 +58,10 @@ const Category: React.FC<ICategory> = ({ title, data, collectionName }: ICategor
                 // ?.sort((a, b) => a.title.localeCompare(b.title))
                 ?.map((item, index) => (
                   <Col xs={24} md={12} lg={8} className="gutter-row" key={`dish-${index}`}>
-                    <Link to={pages.singleDish}>
+                    <Link
+                      to={`${url}/${item.id}`}
+                      onClick={() => addSingleDish(collectionName, item.id, item.title, item.portion)}
+                    >
                       <div className={styles.dishContainer}>
                         <div className={styles.pic}></div>
                         <span>{item.title}</span>
@@ -92,4 +100,4 @@ const Category: React.FC<ICategory> = ({ title, data, collectionName }: ICategor
   );
 };
 
-export default Category;
+export default connect(null, { addSingleDish })(Category);

@@ -5,7 +5,12 @@ import { useFirestoreConnect } from 'react-redux-firebase';
 import Category from '../../shared/category/Category';
 
 const Beverages: React.FC = (): JSX.Element => {
-  useFirestoreConnect([{ collection: 'beverages', orderBy: ['title', 'asc'] }]);
+  useFirestoreConnect([
+    {
+      collection: 'beverages',
+      orderBy: ['title', 'asc'],
+    },
+  ]);
 
   const beverages = useSelector((state: RootStateOrAny) => state.firestore.ordered.beverages);
 

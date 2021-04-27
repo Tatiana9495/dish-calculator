@@ -5,6 +5,6 @@ export const pages = {
   coldDepartment: '/cold_department',
   deserts: '/deserts',
   beverages: '/beverages',
-  singleDish: '/single_dish',
+  // singleDish: '/single_dish',
   ingredients: '/ingredients',
 };

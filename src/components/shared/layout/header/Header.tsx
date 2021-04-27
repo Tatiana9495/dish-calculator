@@ -1,9 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { useFirebase } from 'react-redux-firebase';
 import { Input, AutoComplete } from 'antd';
 import { Link } from 'react-router-dom';
 import { LogoutOutlined, LeftOutlined } from '@ant-design/icons';
 
+import { removeSingleDish } from '../../../../redux/actions/dish';
 import { pages } from '../../../../consts/paths';
 import styles from './Header.module.scss';
 
@@ -16,13 +18,25 @@ const options = [
 
 interface IHeader {
   page: string;
+  dish: null | {
+    id: string;
+    title: string;
+    portion: string;
+  };
+  removeSingleDish: () => void;
 }
 
-const Header: React.FC<IHeader> = ({ page }: IHeader): JSX.Element => {
+const Header: React.FC<IHeader> = ({ page, dish, removeSingleDish }: IHeader): JSX.Element => {
   const firebase = useFirebase();
 
   const logout = () => {
     firebase.logout();
+  };
+
+  const deleteDish = (): void => {
+    if (dish) {
+      removeSingleDish();
+    }
   };
 
   return (
@@ -39,7 +53,7 @@ const Header: React.FC<IHeader> = ({ page }: IHeader): JSX.Element => {
           </div>
         </Link>
       )} */}
-      <Link to={pages.main}>
+      <Link to={pages.main} onClick={deleteDish}>
         <div className={styles.logo}>DishCalculator</div>
         <div className={styles.logoMobile}>{page === 'Main' ? <span>DC</span> : <LeftOutlined />}</div>
       </Link>
@@ -63,4 +77,9 @@ const Header: React.FC<IHeader> = ({ page }: IHeader): JSX.Element => {
   );
 };
 
-export default Header;
+export default connect(
+  (state: IHeader) => ({
+    dish: state.dish,
+  }),
+  { removeSingleDish }
+)(Header);

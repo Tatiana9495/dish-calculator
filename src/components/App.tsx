@@ -2,6 +2,7 @@ import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { isLoaded, isEmpty } from 'react-redux-firebase';
 import { RootStateOrAny, useSelector } from 'react-redux';
+import { connect } from 'react-redux';
 
 import { pages } from '../consts/paths';
 import Beverages from './pages/beverages/Beverages';
@@ -13,7 +14,17 @@ import SignIn from './pages/signIn/SignIn';
 import SingleDish from './pages/singleDish/SingleDish';
 import Ingredients from './pages/ingredients/Ingredients';
 
-const App: React.FC = (): JSX.Element => {
+interface IApp {
+  // props: ReactPropTypes;
+  dish: null | {
+    collection: string;
+    id: string;
+    title: string;
+    portion: string | number;
+  };
+}
+
+const App: React.FC<IApp> = ({ dish }: IApp): JSX.Element => {
   const auth = useSelector((state: RootStateOrAny) => state.firebase.auth);
 
   if (isLoaded(auth) && isEmpty(auth))
@@ -31,11 +42,13 @@ const App: React.FC = (): JSX.Element => {
       <Route exact path={pages.coldDepartment} component={ColdDepartment} />
       <Route exact path={pages.deserts} component={Desserts} />
       <Route exact path={pages.beverages} component={Beverages} />
-      <Route exact path={pages.singleDish} component={SingleDish} />
+      {dish && <Route exact path={`/${dish.collection}/${dish.id}`} component={SingleDish} />}
       <Route exact path={pages.ingredients} component={Ingredients} />
       <Redirect from="/" to={pages.main} />
     </Switch>
   );
 };
 
-export default App;
+export default connect((state: IApp) => ({
+  dish: state.dish,
+}))(App);

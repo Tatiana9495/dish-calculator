@@ -68,10 +68,10 @@ const AddDishForm: React.FC<IAddDishForm> = ({ dishValue, setDishValue }: IAddDi
       onFinish={onFinish}
       // onValuesChange={onRequiredTypeChange}
     >
-      <Form.Item label="Название блюда" name="title">
+      <Form.Item label="Название блюда">
         <Input value={dishValue.title} onChange={(e) => setDishValue({ ...dishValue, title: e.target.value })} />
       </Form.Item>
-      <Form.Item label="Порция в, г" name="portion">
+      <Form.Item label="Порция в, г">
         <Input value={dishValue.portion} onChange={(e) => setDishValue({ ...dishValue, portion: e.target.value })} />
       </Form.Item>
       <Form.Item name="img" style={{ width: '100%' }}>
@@ -84,11 +84,6 @@ const AddDishForm: React.FC<IAddDishForm> = ({ dishValue, setDishValue }: IAddDi
             Upload
           </Button>
         </Upload>
-      </Form.Item>
-      <Form.Item>
-        <Button type="primary" htmlType="submit">
-          Submit
-        </Button>
       </Form.Item>
     </Form>
   );
