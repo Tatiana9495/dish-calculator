@@ -1,14 +1,12 @@
 import React from 'react';
 
-import Layout from '../../shared/layout/Layout';
-import Body from './body/Body';
+import { Layout } from '../../shared/layout';
+import { Body } from './';
 
-const Main: React.FC = (): JSX.Element => {
+export const Main: React.FC = (): JSX.Element => {
   return (
     <Layout page="Main">
       <Body />
     </Layout>
   );
 };
-
-export default Main;

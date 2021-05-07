@@ -1,0 +1,56 @@
+@import "../../../scss/variables";
+
+@media (min-width: 320px) {
+  .btnWrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 38px auto;
+
+    .submitBtn,
+    .cancelBtn {
+      width: 48%;
+      height: 47px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 5px;
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    .submitBtn {
+      background-color: $blue;
+      border: none;
+      color: $white;
+    }
+
+    .disabledBtn {
+      background-color: $grey-placeholder;
+      cursor: not-allowed;
+      border: none;
+    }
+
+    .cancelBtn {
+      background-color: transparent;
+      color: $black;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .btnWrapper {
+    width: unset;
+    width: 270px;
+
+    .submitBtn,
+    .cancelBtn {
+      width: 130px;
+    }
+
+    .cancelBtn {
+      cursor: pointer;
+    }
+  }
+}

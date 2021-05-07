@@ -3,9 +3,9 @@ import { useFirebase } from 'react-redux-firebase';
 import { Link } from 'react-router-dom';
 
 import { pages } from '../../../consts/paths';
-import styles from './SignIn.module.scss';
+import styles from './index.module.scss';
 
-const SignIn: React.FC = (): JSX.Element => {
+export const SignIn: React.FC = (): JSX.Element => {
   const [emailValue, setEmailValue] = useState<string>('');
   const [passwordValue, setPasswordValue] = useState<string>('');
   const firebase = useFirebase();
@@ -43,5 +43,3 @@ const SignIn: React.FC = (): JSX.Element => {
     </div>
   );
 };
-
-export default SignIn;

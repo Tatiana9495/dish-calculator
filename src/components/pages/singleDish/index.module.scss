@@ -40,7 +40,7 @@
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    width: calc(100% - 120px);
+    width: 100%;
     font-size: 14px;
 
     &:after {
@@ -155,7 +155,6 @@
   }
 
   .dots {
-    width: calc(100% - 180px);
     font-size: 18px;
   }
 

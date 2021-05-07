@@ -1,8 +1,8 @@
 import React from 'react';
 
-import styles from './DishSkeleton.module.scss';
+import styles from './index.module.scss';
 
-const DishSkeleton: React.FC = (): JSX.Element => {
+export const DishSkeleton: React.FC = (): JSX.Element => {
   return (
     <div className={styles.container}>
       <div className={styles.innerContainer}>
@@ -23,5 +23,3 @@ const DishSkeleton: React.FC = (): JSX.Element => {
     </div>
   );
 };
-
-export default DishSkeleton;

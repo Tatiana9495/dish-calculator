@@ -5,9 +5,9 @@ import { Input, AutoComplete } from 'antd';
 import { Link } from 'react-router-dom';
 import { LogoutOutlined, LeftOutlined } from '@ant-design/icons';
 
-import { removeSingleDish } from '../../../../redux/actions/dish';
-import { pages } from '../../../../consts/paths';
-import styles from './Header.module.scss';
+import { removeSingleDish } from '../../../redux/actions/dish';
+import { pages } from '../../../consts/paths';
+import styles from './index.module.scss';
 
 const options = [
   {
@@ -26,7 +26,7 @@ interface IHeader {
   removeSingleDish: () => void;
 }
 
-const Header: React.FC<IHeader> = ({ page, dish, removeSingleDish }: IHeader): JSX.Element => {
+const _Header: React.FC<IHeader> = ({ page, dish, removeSingleDish }: IHeader): JSX.Element => {
   const firebase = useFirebase();
 
   const logout = () => {
@@ -77,9 +77,9 @@ const Header: React.FC<IHeader> = ({ page, dish, removeSingleDish }: IHeader): J
   );
 };
 
-export default connect(
+export const Header = connect(
   (state: IHeader) => ({
     dish: state.dish,
   }),
   { removeSingleDish }
-)(Header);
+)(_Header);

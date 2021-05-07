@@ -2,10 +2,10 @@ import React from 'react';
 import { Row, Col } from 'antd';
 import { Link } from 'react-router-dom';
 
-import { dishes } from '../../../../fakeData/dishes';
-import styles from './Body.module.scss';
+import { dishes } from '../../../fakeData/dishes';
+import styles from './index.module.scss';
 
-const Body: React.FC = (): JSX.Element => {
+export const Body: React.FC = (): JSX.Element => {
   return (
     <div className={styles.container}>
       <Row gutter={[24, 24]} className={styles.row}>
@@ -23,5 +23,3 @@ const Body: React.FC = (): JSX.Element => {
     </div>
   );
 };
-
-export default Body;

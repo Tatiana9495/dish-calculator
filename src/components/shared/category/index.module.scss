@@ -5,6 +5,30 @@
   height: 100%;
 }
 
+.gutter-row {
+  position: relative;
+}
+
+.btnsWrapper {
+  position: absolute;
+  top: 26.5px;
+  right: 25px;
+  font-size: 18px;
+
+  svg {
+    cursor: pointer;
+  }
+
+  .deleteBtn {
+    color: $red;
+    margin-right: 15px;
+  }
+
+  .editBtn {
+    color: $blue;
+  }
+}
+
 @media (min-width: 320px) {
   .container {
     padding: 74px 16px 28px 16px;
@@ -25,11 +49,21 @@
       border-radius: 5px;
       display: flex;
 
+      .realPic,
       .pic {
         width: 99px;
         margin-right: 20px;
         height: 100%;
         border-radius: 5px;
+      }
+
+      .realPic {
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
+
+      .pic {
         background-color: $grey;
       }
 
@@ -38,7 +72,7 @@
         line-height: 1.2;
         display: flex;
         align-items: center;
-        width: calc(100% - 119px);
+        width: calc(100% - 174px);
       }
     }
 
@@ -65,13 +99,14 @@
       padding: 8px 14px;
       cursor: pointer;
 
-      .pic {
+      .pic,
+      .realPic {
         width: 77px;
         margin-right: 26px;
       }
 
       span {
-        width: calc(100% - 103px);
+        width: calc(100% - 158px);
         font-size: 16px;
       }
     }

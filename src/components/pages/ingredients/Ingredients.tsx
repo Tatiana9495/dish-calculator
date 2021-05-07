@@ -1,28 +1,21 @@
 import React, { useState } from 'react';
 import { RootStateOrAny, useSelector } from 'react-redux';
 import { isLoaded, useFirestoreConnect, useFirestore } from 'react-redux-firebase';
-import classNames from 'classnames/bind';
 import { PlusOutlined, DeleteOutlined } from '@ant-design/icons';
 
-import Loader from '../../shared/loader/Loader';
-import Layout from '../../shared/layout/Layout';
+import { Loader } from '../../shared/loader';
+import { Layout } from '../../shared/layout';
 import { Ingredient } from '../../../types';
-import styles from './Ingredients.module.scss';
+import { AddCancelBtns } from '../../shared/addCancelBtns';
+import styles from './index.module.scss';
 
-const cx = classNames.bind(styles);
-
-const Ingredients: React.FC = (): JSX.Element => {
+export const Ingredients: React.FC = (): JSX.Element => {
   const [title, setTitle] = useState<{ value: string; open: string | null }>({ value: '', open: null });
   const [price, setPrice] = useState<{ value: number | string; open: string | null }>({ value: '', open: null });
   const [isAddRowOpen, setAddRowOpen] = useState<boolean>(false);
   const [additionalValue, setAdditionalValue] = useState<{ title: string; price: number | string }>({
     title: '',
     price: '',
-  });
-
-  const className = cx({
-    submitBtn: true,
-    disabledBtn: !additionalValue.title || !additionalValue.price,
   });
 
   const firestore = useFirestore();
@@ -49,7 +42,7 @@ const Ingredients: React.FC = (): JSX.Element => {
 
   const addIngredient = (title: string, price: string | number): void => {
     if (title && price) {
-      firestore.collection('ingredients').add({ title: title, price: price });
+      firestore.collection('ingredients').add({ title: title, price: Number(price) });
       setAddRowOpen(false);
       setAdditionalValue({ title: '', price: '' });
     }
@@ -108,7 +101,7 @@ const Ingredients: React.FC = (): JSX.Element => {
                         placeholder={item.price.toString()}
                         type="number"
                         value={price.value}
-                        onChange={(e) => setPrice({ ...price, value: e.target.value })}
+                        onChange={(e) => setPrice({ ...price, value: Number(e.target.value) })}
                         onKeyDown={(e) => submitPrice(e, item.id)}
                         className={`${styles.input} ${styles.centeredInput}`}
                       />
@@ -147,18 +140,12 @@ const Ingredients: React.FC = (): JSX.Element => {
             </div>
           )}
           {isAddRowOpen ? (
-            <div className={styles.btnWrapper}>
-              <button
-                disabled={!additionalValue.title || !additionalValue.price}
-                className={className}
-                onClick={() => addIngredient(additionalValue.title, additionalValue.price)}
-              >
-                Add
-              </button>
-              <div className={styles.cancelBtn} onClick={cancelAddRow}>
-                Cancel
-              </div>
-            </div>
+            <AddCancelBtns
+              value1={additionalValue.title}
+              value2={additionalValue.price}
+              addFunc={addIngredient}
+              cancelFunc={cancelAddRow}
+            />
           ) : (
             isLoaded(ingredients) && (
               <div className={styles.addBtn} onClick={() => setAddRowOpen(true)}>
@@ -171,5 +158,3 @@ const Ingredients: React.FC = (): JSX.Element => {
     </Layout>
   );
 };
-
-export default Ingredients;

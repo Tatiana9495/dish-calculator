@@ -11,7 +11,7 @@ import 'firebase/firestore';
 import { ReactReduxFirebaseProvider } from 'react-redux-firebase';
 import { createFirestoreInstance } from 'redux-firestore';
 
-import App from './components/App';
+import { App } from './components/App';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDOJyiWzHpRPB2YN8Phpfzx5Rk2rwrch5M',

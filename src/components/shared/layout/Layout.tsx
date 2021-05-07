@@ -1,20 +1,18 @@
 import React from 'react';
 
-import Header from './header/Header';
-import styles from './Layout.module.scss';
+import { Header } from './';
+import styles from './index.module.scss';
 
 interface ILayout {
   children: React.ReactNode;
   page: string;
 }
 
-const Layout: React.FC<ILayout> = ({ children, page }: ILayout): JSX.Element => {
+export const Layout: React.FC<ILayout> = ({ children, page }: ILayout): JSX.Element => {
   return (
-    <div className={styles.container}>
+    <div className={styles.layoutContainer}>
       <Header page={page} />
       {children}
     </div>
   );
 };
-
-export default Layout;

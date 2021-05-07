@@ -2,9 +2,9 @@ import React from 'react';
 import { RootStateOrAny, useSelector } from 'react-redux';
 import { useFirestoreConnect } from 'react-redux-firebase';
 
-import Category from '../../shared/category/Category';
+import { Category } from '../../shared/category';
 
-const Beverages: React.FC = (): JSX.Element => {
+export const Beverages: React.FC = (): JSX.Element => {
   useFirestoreConnect([
     {
       collection: 'beverages',
@@ -16,5 +16,3 @@ const Beverages: React.FC = (): JSX.Element => {
 
   return <Category title="Напитки" data={beverages} collectionName="beverages" />;
 };
-
-export default Beverages;

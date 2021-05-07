@@ -7,6 +7,7 @@ interface IDishState {
     id: string;
     title: string;
     portion: string | number;
+    img: string | ArrayBuffer | undefined;
   };
 }
 
@@ -22,6 +23,7 @@ const singleDishReducer = (state = initialState.value, action: AnyAction) => {
         id: action.id,
         title: action.title,
         portion: action.portion,
+        img: action.img,
       };
     case REMOVE_SINGLE_DISH:
       return initialState.value;

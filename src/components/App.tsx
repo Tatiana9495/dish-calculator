@@ -5,14 +5,14 @@ import { RootStateOrAny, useSelector } from 'react-redux';
 import { connect } from 'react-redux';
 
 import { pages } from '../consts/paths';
-import Beverages from './pages/beverages/Beverages';
-import ColdDepartment from './pages/coldDepartment/ColdDepartment';
-import Desserts from './pages/desserts/Desserts';
-import HotDepartment from './pages/hotDepartment/HotDepartment';
-import Main from './pages/main/Main';
-import SignIn from './pages/signIn/SignIn';
-import SingleDish from './pages/singleDish/SingleDish';
-import Ingredients from './pages/ingredients/Ingredients';
+import { Beverages } from './pages/beverages';
+import { ColdDepartment } from './pages/coldDepartment';
+import { Desserts } from './pages/desserts';
+import { HotDepartment } from './pages/hotDepartment';
+import { Main } from './pages/main';
+import { SignIn } from './pages/signIn';
+import { SingleDish } from './pages/singleDish';
+import { Ingredients } from './pages/ingredients';
 
 interface IApp {
   // props: ReactPropTypes;
@@ -24,7 +24,7 @@ interface IApp {
   };
 }
 
-const App: React.FC<IApp> = ({ dish }: IApp): JSX.Element => {
+const _App: React.FC<IApp> = ({ dish }: IApp): JSX.Element => {
   const auth = useSelector((state: RootStateOrAny) => state.firebase.auth);
 
   if (isLoaded(auth) && isEmpty(auth))
@@ -49,6 +49,6 @@ const App: React.FC<IApp> = ({ dish }: IApp): JSX.Element => {
   );
 };
 
-export default connect((state: IApp) => ({
+export const App = connect((state: IApp) => ({
   dish: state.dish,
-}))(App);
+}))(_App);
