@@ -1,5 +1,6 @@
 export const dishes = [
   {
+    id: 1,
     category: 'Горячий цех',
     link: '/hot_department',
     img: '/falafel.jpg',
@@ -71,6 +72,7 @@ export const dishes = [
     ],
   },
   {
+    id: 2,
     category: 'Холодный цех',
     link: '/cold_department',
     img: '/salad.jpg',
@@ -98,6 +100,7 @@ export const dishes = [
     ],
   },
   {
+    id: 3,
     category: 'Напитки',
     link: '/beverages',
     img: '/smoothie.jpeg',
@@ -165,6 +168,7 @@ export const dishes = [
     ],
   },
   {
+    id: 4,
     category: 'Десерты',
     link: '/deserts',
     img: '/desert.jpeg',
@@ -196,6 +200,7 @@ export const dishes = [
     ],
   },
   {
+    id: 5,
     category: 'Ингредиенты',
     link: '/ingredients',
     img: '/ingredients.jpg',

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import './scss/main.scss';
 import reportWebVitals from './reportWebVitals';
@@ -10,8 +10,9 @@ import 'firebase/auth';
 import 'firebase/firestore';
 import { ReactReduxFirebaseProvider } from 'react-redux-firebase';
 import { createFirestoreInstance } from 'redux-firestore';
+import './i18n';
 
-import { App } from './components/App';
+import { App } from './App';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDOJyiWzHpRPB2YN8Phpfzx5Rk2rwrch5M',
@@ -41,13 +42,15 @@ const rrfProps = {
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <ReactReduxFirebaseProvider {...rrfProps}>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </ReactReduxFirebaseProvider>
-    </Provider>
+      <Provider store={store}>
+      <Suspense fallback={<div>Loading...</div>}>
+        <ReactReduxFirebaseProvider {...rrfProps}>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </ReactReduxFirebaseProvider>
+        </Suspense>
+      </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

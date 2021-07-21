@@ -1,0 +1,48 @@
+{
+  "ingredients": {
+    "title": "Ingredients",
+    "row1": "№",
+    "row2": "Title",
+    "row3": "Price, rub"
+  },
+  "signIn": {
+    "title": "DishCalculator",
+    "placeholder1": "Email",
+    "placeholder2": "Password",
+    "button": "Sign In"
+  },
+  "main": [
+    "Hot Department",
+    "Cold Department",
+    "Beverages",
+    "Desserts",
+    "Ingredients"
+  ],
+  "singleDish": {
+    "price": "Price, rub: "
+  },
+  "addBtn": {
+    "leftBtn": "Add",
+    "rightBtn": "Cancel"
+  },
+  "addDishForm": {
+    "label1": "Dish title",
+    "label2": "Portion, g",
+    "button": "Upload photo"
+  },
+  "category": {
+    "question": "Are you sure you want to remove this item?",
+    "text1": "Yes",
+    "text2": "No",
+    "title1": "Edit item",
+    "btn1": "Cancel",
+    "btn2": "Submit",
+    "title2": "Add item"
+  },
+  "layout": {
+    "title1": "DishCalculator",
+    "title2": "DC",
+    "placeholder": "Search",
+    "btn": "Sign out"
+  }
+}

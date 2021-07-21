@@ -1,0 +1,48 @@
+{
+  "ingredients": {
+    "title": "Ингредиенты",
+    "row1": "№",
+    "row2": "Название",
+    "row3": "Цена, руб"
+  },
+  "signIn": {
+    "title": "DishCalculator",
+    "placeholder1": "Email",
+    "placeholder2": "Пароль",
+    "button": "Войти"
+  },
+  "main": [
+    "Горячий Цех",
+    "Холодный цех",
+    "Напитки",
+    "Десерты",
+    "Ингредиенты"
+  ],
+  "singleDish": {
+    "price": "Цена, руб: "
+  },
+  "addBtn": {
+    "leftBtn": "Добавить",
+    "rightBtn": "Закрыть"
+  },
+  "addDishForm": {
+    "label1": "Название блюда",
+    "label2": "Порция в, г",
+    "button": "Загрузить фото"
+  },
+  "category": {
+    "question": "Вы уверены что хотите удалить эту позицию?",
+    "text1": "Да",
+    "text2": "Нет",
+    "title1": "Редактировать позицию",
+    "btn1": "Закрыть",
+    "btn2": "Подтвердить",
+    "title2": "Добавить позицию"
+  },
+  "layout": {
+    "title1": "DishCalculator",
+    "title2": "DC",
+    "placeholder": "Искать",
+    "btn": "Выход"
+  }
+}

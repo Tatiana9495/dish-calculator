@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly enzyme 1`] = `
+<div
+  className="container"
+>
+  <div
+    className="btnWrapper"
+    key="language-1"
+    onClick={[Function]}
+  >
+    <div
+      className="circle"
+    />
+    <span>
+      en
+    </span>
+  </div>
+  <div
+    className="btnWrapper"
+    key="language-2"
+    onClick={[Function]}
+  >
+    <div
+      className="circle"
+    >
+      <div
+        className="innerCircle"
+      />
+    </div>
+    <span>
+      ru
+    </span>
+  </div>
+</div>
+`;

@@ -1,0 +1,39 @@
+@import '../../scss/variables';
+
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.btnWrapper {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  &:first-child {
+    margin-right: 20px;
+  }
+}
+
+.circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1px solid $black;
+  background-color: transparent;
+
+  .innerCircle {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: $black;
+  }
+}
+
+span {
+  text-transform: capitalize;
+  margin-left: 7px;
+}
